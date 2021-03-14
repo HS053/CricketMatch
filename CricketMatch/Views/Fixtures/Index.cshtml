@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CricketMatch.Models.Fixture>
+
+@{
+    ViewData["Title"] = "Fixture";
+}
+
+<h1>Fixture</h1>
+
+<p>
+    <a asp-action="Create">Add Fixtures</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.vs_Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ground_Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.vs_Team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ground_Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Fixture_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Fixture_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Fixture_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
